@@ -71,7 +71,7 @@ def scan_repo(email, url):
 
 @app.route("/")
 def main_page():
-    return render_template("index.html", error=None)
+    return render_template("index.html")
 
 @app.route("/analyze_repository", methods=["POST"])
 def analyze_repository():
@@ -81,8 +81,8 @@ def analyze_repository():
     if not re.match(r"[^@]+@[^@]+\.[^@]+", email):
         errors.append("Please enter a valid email address")
     if any(errors):
-        return render_template("index.html", error=" ".join(error))
+        return render_template("error.html", errors=errors)
     executor.submit(scan_repo, email, url)
-    return render_template("success.html")
+    return render_template("success.html", email=email)
 
 app.run()
