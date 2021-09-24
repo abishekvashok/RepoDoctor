@@ -20,7 +20,7 @@
 			href="{{ url_for('static',filename='styles/style.css') }}"
 		/>
 
-		<title>Submission Success</title>
+		<title>Problem with submission</title>
 	</head>
 	<body>
 		<section class="container-fluid d-flex align-items-center main-wrapper">
@@ -30,7 +30,7 @@
 						class="col-md-12 d-flex align-items-center justify-content-center"
 					>
 						<lottie-player
-							src="https://assets1.lottiefiles.com/packages/lf20_4qldwfx4.json"
+							src="https://assets4.lottiefiles.com/private_files/lf30_glnkkfua.json""
 							background="transparent"
 							speed="1"
 							style="width: 420px; height: 420px"
@@ -39,11 +39,15 @@
 						></lottie-player>
 
 						<div class="mb-5 text-center px-md-5 px-2">
-							<h1>Success!</h1>
-							<p class="lead">
-								RepoDoctor will review your code and notify you at
-								<span class="fw-bold">{{email}}</span>
-							</p>
+							<h1>ERROR</h1>
+
+							<ul>
+								{% for error in errors %}
+
+								    <li class="lead">{{error}}</li>
+
+								{% endfor %}
+							</ul>
 						</div>
 					</div>
 				</div>
